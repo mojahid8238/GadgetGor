@@ -4,75 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple E-Commerce Site</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background-color: #f5f5f5;
-    }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .product-card {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-    .product-image {
-      background-color: #ddd;
-      width: 100%;
-      height: 200px;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-size: 14px;
-    }
-    .product-name {
-      font-size: 18px;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-    .product-price {
-      font-size: 16px;
-      color: #4CAF50;
-      margin-bottom: 0.5rem;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #4CAF50;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-  </style>
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    background-color: #f5f5f5;
+  }
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  .product-image {
+    background-color: #ddd;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .product-name {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  .product-price {
+    font-size: 16px;
+    color: #4CAF50;
+    margin-bottom: 0.5rem;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+</style>
+
 </head>
 <body>
   <header>
@@ -84,52 +90,29 @@
       
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/phone_charger.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Apple 20W USB-C Power Adapter - iPhone Charger with Fast Charging Capability, Type C Wall Charger </div>
+        <div class="product-price">৳2567</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
 
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/powerbank.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">I2GO, Carregador Portátil (Power Bank) Ultra Rápido 20000mAh, Power Delivery 20W, 2 Saídas USB + 1 Saída/Entrada USB-C, Preto, i2GO PRO</div>
+        <div class="product-price">৳10000</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
 
 
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/Phonecase.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Lamicall Waterproof Phone Pouch Case - [2 Pack][Easy Lock & Heavy Duty] IPX8 Water Proof Cell Phone Dry Bag for Beach, Protector for iPhone 16 15 14 13 12 11 Pro Max Plus XS XR, Galaxy S24 S23, 4-7"</div>
+        <div class="product-price">৳1432</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
 
@@ -138,10 +121,10 @@
 
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/usb cable.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Amazon Basics DisplayPort to DisplayPort 1.2 Cable with 4K@60Hz, 2K@165Hz, 2K@144Hz Video Resolution - 3 Feet, for Personal Computer, Black</div>
+        <div class="product-price">৳565</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
 
@@ -149,75 +132,10 @@
 
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/micro.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="" alt="">
-        </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Mini Mic Pro Wireless Microphone for iPhone, iPad, Android, Lavalier Microphone for Video Recording - 2 Pack iPhone Mic Crystal Clear Recording with USB-C for Podcast, ASMR</div>
+        <div class="product-price">৳10893</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
 
@@ -226,21 +144,112 @@
 
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/keyboard.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Aijeff Keyboard Wrist Rest with Cleaning Kit, Mutifunctional Cleaner Kit for Phones, Computers, Headphones, Tablets, Innovative Wrist Support for Typing, Gaming, Black
+  </div>
+        <div class="product-price">৳1563</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
+
+
+
       <div class="product-card">
         <div class="product-image">
-          <img src="" alt="">
+          <img src="/img/mouse.png" alt="">
         </div>
-        <div class="product-name">Product 4</div>
-        <div class="product-price">$49.99</div>
+        <div class="product-name">Razer Basilisk V3 Customizable Ergonomic Gaming Mouse: Fastest Gaming Mouse Switch - Chroma RGB Lighting - 26K DPI Optical Sensor - 11 Programmable Buttons - HyperScroll Tilt Wheel - Classic Black</div>
+        <div class="product-price">৳869</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/mouse_pad.png" alt="">
+        </div>
+        <div class="product-name">Logitech Mouse Pad - Studio Series, Computer Mouse Mat with Anti-Slip Rubber Base, Easy Gliding, Spill-Resistant Surface, Durable Materials, Portable, in a Fresh Modern Design, Graphite</div>
+        <div class="product-price">৳283</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/speaker.png" alt="">
+        </div>
+        <div class="product-name">Bluetooth Speaker with HD Sound, Portable Wireless, IPX5 Waterproof, Up to 20H Playtime, TWS Pairing, BT5.3, for Home/Party/Outdoor/Beach, Electronic Gadgets, Birthday Gift (Black)</div>
+        <div class="product-price">৳1934</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/stand.png" alt="">
+        </div>
+        <div class="product-name">Laptop Stand for Desk, Adjustable Laptop Riser ABS+Silicone Foldable Portable Notebook Holder, Ventilated Cooling Notebook Mount Computer Stand for 10-15.6” Laptops,Tablets-Black</div>
+        <div class="product-price">৳656</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/pen.png" alt="">
+        </div>
+        <div class="product-name">Stylus (5 Pcs), 2-in-1 Stylus Pen for Touch Screen, High Precision and Sensitivity, Suitable for iPhone/ipad/Android Tablets, Compatible with All Touch Screens (Black/White/Blue/Rose Gold/Silver)</div>
+        <div class="product-price">৳432</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/headset.png" alt="">
+        </div>
+        <div class="product-name">Meta Quest 2 128GB - Advanced All-in-One Virtual Reality Headset (Renewed)</div>
+        <div class="product-price">৳78547</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/usb_hub.png" alt="">
+        </div>
+        <div class="product-name">Acer USB Hub 4 Ports, Multiple USB 3.0 Hub, USBA Splitter for Laptop with Type C Power Port, Extender for A Port Laptop, PC, Desktop and More (2ft)</div>
+        <div class="product-price">৳214</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
+
+
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/img/earphone.png" alt="">
+        </div>
+        <div class="product-name">Wireless Earbuds, Bluetooth Ear Buds with Big Bass Stereo Sound, 48 Hours Playtime, Lightweight in-Ear Fit Earphones, IPX7, Hands-Free Calls with AI for iPhone, Android, Pad, Sports, Workout</div>
+        <div class="product-price">৳423</div>
         <a href="#" class="btn">Add to Cart</a>
       </div>
       
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="img/ssd.png" alt="">
+        </div>
+        <div class="product-name">SanDisk 2TB Extreme Portable SSD - Up to 1050MB/s, USB-C, USB 3.2 Gen 2, IP65 Water and Dust Resistance, Updated Firmware - External Solid State Drive - SDSSDE61-2T00-G25</div>
+        <div class="product-price">৳14323</div>
+        <a href="#" class="btn">Add to Cart</a>
+      </div>
+
     </div>
   </div>
 </body>
