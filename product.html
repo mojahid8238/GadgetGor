@@ -308,39 +308,79 @@
   });
 </script>
 
+<!-- ✅ Toast message -->
+<div id="toast" style="
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+">✅ Added to cart!</div>
+
 <script>
-  // Attach listeners to all "Add to Cart" buttons
+  function showToast(message = "✅ Added to cart!") {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.style.display = 'block';
+
+    setTimeout(() => {
+      toast.style.opacity = '1';
+      toast.style.transition = 'opacity 0.3s';
+    }, 100); // fade in
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.style.display = 'none', 300);
+    }, 2000); // hide after 2 sec
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.btn');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', (e) => {
-        e.preventDefault(); // prevent anchor jump
-        const card = btn.closest('.product-card');
+        e.preventDefault();
+        e.stopPropagation(); // ✅ Prevent redirect
 
+        const card = btn.closest('.product-card');
         if (card) {
           const img = card.querySelector('img')?.src || '';
           const name = card.querySelector('.product-name')?.textContent || 'Unnamed';
           const price = card.querySelector('.product-price')?.textContent || '৳0';
 
           const item = { image: img, name, price };
-
-          // Load existing cart
           const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-          // Add new item
           cart.push(item);
-
-          // Save back to localStorage
           localStorage.setItem('cartItems', JSON.stringify(cart));
 
-          // Show message
-          alert('✅ Added to cart!');
+          showToast();
         }
+      });
+    });
+
+    // 🔁 Card click redirects to details
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const image = card.querySelector('img').getAttribute('src');
+        const name = card.querySelector('.product-name').textContent;
+        const price = card.querySelector('.product-price').textContent;
+
+        const product = { image, name, price };
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'product.html'; // redirect to details
       });
     });
   });
 </script>
+
 
 </body>
 </html>
