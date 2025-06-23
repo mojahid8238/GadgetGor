@@ -87,7 +87,7 @@
             req = new XMLHttpRequest();
             req.open("GET", url, false);
             req.send(null);
-            document.getElementById(3).innerHTML = req.responseText;
+            document.getElementById(4).innerHTML = req.responseText;
         }
     </script>
 
@@ -98,7 +98,7 @@
     
 
     <!-- FOOTER -->
-    <div id="4"></div>
+    <div id="footer"></div>
     <script>
         load("footer.html");
         function load(url)
@@ -133,10 +133,10 @@
 <script>
     $(document).ready(function()
     {
-    $('#containerSlider2').slick({
+    $('#containerSlider2','#containerSlider3').slick({
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1500,
@@ -147,20 +147,7 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-    $(document).ready(function()
-    {
-    $('#containerSlider3').slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        });
-    });
-</script>
+
 <!-- slider JS ENDS -->
 
 
