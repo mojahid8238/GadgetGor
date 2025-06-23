@@ -74,6 +74,27 @@
         }
     </script>
 
+    <!-- SLIDER 3-->
+    <div id="4">
+        <!-- New container added inside div 3 -->
+        <div class="extra-container2">
+            <!-- Content for the new container -->
+        </div>
+    </div>
+    <script>
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(3).innerHTML = req.responseText;
+        }
+    </script>
+
+
+
+
+
     
 
     <!-- FOOTER -->
@@ -113,6 +134,24 @@
     $(document).ready(function()
     {
     $('#containerSlider2').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+    $('#containerSlider3').slick({
         dots: true,
         infinite: true,
         slidesToShow: 3,
