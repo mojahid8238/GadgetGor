@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="/style.css"> -->
-    <title>GadgetGor</title>
+    <title>GadgetGor-Home</title>
     <!-- favicon -->
     <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
     <!-- header links -->
@@ -16,6 +16,18 @@
     <script src="js/jQuery3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <style>
+        .accessory-img {
+          width: 56px;
+          height: 56px;
+          object-fit: contain; /* or use 'cover' for a different effect */
+          display: block;
+          margin: 0 auto 16px auto;
+          border-radius: 6px;
+          background: #f0f0f0;
+          border: 1px solid #e0e0e0;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,10 +56,15 @@
         }
     </script>
 
-    <!-- CONTENT SECTION -->
-    <div id="3"></div>
+    
+    <!-- SLIDER 2-->
+    <div id="3">
+        <!-- New container added inside div 3 -->
+        <div class="extra-container">
+            <!-- Content for the new container -->
+        </div>
+    </div>
     <script>
-        load("content.html");
         function load(url)
         {
             req = new XMLHttpRequest();
@@ -56,6 +73,8 @@
             document.getElementById(3).innerHTML = req.responseText;
         }
     </script>
+
+    
 
     <!-- FOOTER -->
     <div id="4"></div>
@@ -87,9 +106,23 @@
         });
     });
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+    $('#containerSlider2').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        });
+    });
+</script>
 <!-- slider JS ENDS -->
 
-<!-- content JS -->
-<script src="content.js"></script>
 
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GadgetGor</title>
+    <title>GadgetGor-Slider</title>
     <!-- favicon -->
     <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
     <!-- EXTERNAL LINKS -->
@@ -47,6 +47,115 @@
         }
     </style>
 
+     <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    background-color: #f5f5f5;
+  }
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    width: 220px;
+    min-height: 320px;
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  .product-image {
+    background-color: #ddd;
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .product-name {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  .product-price {
+    font-size: 16px;
+    color: #4CAF50;
+    margin-bottom: 0.5rem;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+</style>
+
+<style>
+  .selected-product {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+  }
+  .selected-product img {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+  .selected-product .product-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .selected-product .product-price {
+    font-size: 18px;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+</style>
+
 </head>
 <body>
     <section>
@@ -57,6 +166,201 @@
                 <div id="slidingImage"> <img src="img/img4.png" alt="image4"> </div>
             </div>
     </section>
+       <h3>Accessories</h3>
+    
+    <section>
+            <div id="containerSlider2">
+                <div class="product-card">
+        <div class="product-image">
+            <img src="/img/phone_charger.png" alt="">
+        </div>
+        <div class="product-price">৳2567</div>
+        <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/powerbank.png" alt="">
+            </div>
+            <div class="product-price">৳10000</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/Phonecase.png" alt="">
+            </div>
+            <div class="product-price">৳1432</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/usb cable.png" alt="">
+            </div>
+            <div class="product-price">৳565</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/micro.png" alt="">
+            </div>
+            <div class="product-price">৳10893</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/keyboard.png" alt="">
+            </div>
+            <div class="product-price">৳1563</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/mouse.png" alt="">
+            </div>
+            <div class="product-price">৳869</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/mouse_pad.png" alt="">
+            </div>
+            <div class="product-price">৳283</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/speaker.png" alt="">
+            </div>
+            <div class="product-price">৳1934</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/stand.png" alt="">
+            </div>
+            <div class="product-price">৳656</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/pen.png" alt="">
+            </div>
+            <div class="product-price">৳432</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/headset.png" alt="">
+            </div>
+            <div class="product-price">৳78547</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/usb_hub.png" alt="">
+            </div>
+            <div class="product-price">৳214</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/img/earphone.png" alt="">
+            </div>
+            <div class="product-price">৳423</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="img/ssd.png" alt="">
+            </div>
+            <div class="product-price">৳14323</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+
+            </div>
+    </section>
+
+    <script>
+      // Example products for the multi-slider
+      const multiSliderData = [
+        {
+          name: "USB Hub",
+          img: "https://img.icons8.com/color/96/000000/usb-c-port.png",
+          desc: "Expand your connectivity with this USB hub."
+        },
+        {
+          name: "Webcam",
+          img: "https://img.icons8.com/color/96/000000/webcam.png",
+          desc: "High-definition webcam for video calls."
+        },
+        {
+          name: "Portable SSD",
+          img: "https://img.icons8.com/color/96/000000/ssd.png",
+          desc: "Fast and reliable portable SSD."
+        },
+        {
+          name: "Bluetooth Speaker",
+          img: "https://img.icons8.com/color/96/000000/bluetooth.png",
+          desc: "Wireless speaker with rich sound."
+        },
+        {
+          name: "Gaming Headset",
+          img: "https://img.icons8.com/color/96/000000/headset.png",
+          desc: "Immersive sound for gaming."
+        },
+        {
+          name: "Monitor Stand",
+          img: "https://img.icons8.com/color/96/000000/monitor.png",
+          desc: "Ergonomic monitor stand."
+        }
+      ];
+
+      let multiCurrent = 0;
+      const multiPerPage = 3;
+
+      function showMultiSlide() {
+        const container = document.getElementById('slider-multi-items');
+        container.innerHTML = '';
+        for (let i = 0; i < multiPerPage; i++) {
+          const idx = (multiCurrent + i) % multiSliderData.length;
+          const item = multiSliderData[idx];
+          const el = document.createElement('div');
+          el.className = 'slider-item';
+          el.innerHTML = `
+            <img class="slider-img" src="${item.img}" alt="${item.name}">
+            <div class="slider-name">${item.name}</div>
+            <div class="slider-desc">${item.desc}</div>
+          `;
+          container.appendChild(el);
+        }
+      }
+
+      function prevMultiSlide() {
+        multiCurrent = (multiCurrent - multiPerPage + multiSliderData.length) % multiSliderData.length;
+        showMultiSlide();
+      }
+
+      function nextMultiSlide() {
+        multiCurrent = (multiCurrent + multiPerPage) % multiSliderData.length;
+        showMultiSlide();
+      }
+
+      // Initialize multi-slider
+      showMultiSlide();
+    </script>
 </body>
     <!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js”></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
