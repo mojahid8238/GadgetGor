@@ -8,7 +8,7 @@
     <!-- favicon -->
     <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
     <!-- EXTERNAL LINKS -->
-    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <style>
@@ -45,117 +45,15 @@
                 height: 10em;
             }
         }
+         .product-pric {
+         font-size: 25px;
+          font-weight: bold;
+        color: #37f806;
+        margin-bottom: 0.5rem;
+        }
     </style>
-
-     <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  body {
-    background-color: #f5f5f5;
-  }
-  header {
-    background-color: #333;
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem;
-  }
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  .product-card {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-    width: 220px;
-    min-height: 320px;
-    max-height: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-  }
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  .product-image {
-    background-color: #ddd;
-    width: 100%;
-    height: 150px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .product-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  .product-name {
-    font-size: 18px;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  .product-price {
-    font-size: 16px;
-    color: #4CAF50;
-    margin-bottom: 0.5rem;
-  }
-  .btn {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-  }
-</style>
-
-<style>
-  .selected-product {
-    background-color: white;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    display: none;
-  }
-  .selected-product img {
-    max-width: 200px;
-    margin-bottom: 1rem;
-  }
-  .selected-product .product-name {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  .selected-product .product-price {
-    font-size: 18px;
-    color: #4CAF50;
-    margin-bottom: 1rem;
-  }
-</style>
-
+<link rel="stylesheet" href="css/product.css">
+   
 </head>
 <body>
     <section>
@@ -171,125 +69,125 @@
     
     <section>
             <div id="containerSlider2">
-                <div class="product-card">
-        <div class="product-image">
-            <img src="/img/phone_charger.png" alt="">
-        </div>
-        <div class="product-price">৳2567</div>
-        <a href="#" class="btn">Add to Cart</a>
-        </div>
+               <div class="product-card">
+  <div class="product-image">
+    <img src="/img/phone_charger.png" alt="Apple 20W USB-C Power Adapter - iPhone Charger with Fast Charging Capability, Type C Wall Charger">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳2567</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/powerbank.png" alt="">
-            </div>
-            <div class="product-price">৳10000</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/powerbank.png" alt="I2GO, Carregador Portátil (Power Bank) Ultra Rápido 20000mAh, Power Delivery 20W, 2 Saídas USB + 1 Saída/Entrada USB-C, Preto, i2GO PRO">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳10000</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/Phonecase.png" alt="">
-            </div>
-            <div class="product-price">৳1432</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/Phonecase.png" alt="Lamicall Waterproof Phone Pouch Case - [2 Pack][Easy Lock & Heavy Duty] IPX8 Water Proof Cell Phone Dry Bag for Beach, Protector for iPhone 16 15 14 13 12 11 Pro Max Plus XS XR, Galaxy S24 S23, 4-7">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳1432</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/usb cable.png" alt="">
-            </div>
-            <div class="product-price">৳565</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/usb cable.png" alt="Amazon Basics DisplayPort to DisplayPort 1.2 Cable with 4K@60Hz, 2K@165Hz, 2K@144Hz Video Resolution - 3 Feet, for Personal Computer, Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳565</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/micro.png" alt="">
-            </div>
-            <div class="product-price">৳10893</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/micro.png" alt="Mini Mic Pro Wireless Microphone for iPhone, iPad, Android, Lavalier Microphone for Video Recording - 2 Pack iPhone Mic Crystal Clear Recording with USB-C for Podcast, ASMR">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳10893</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/keyboard.png" alt="">
-            </div>
-            <div class="product-price">৳1563</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/keyboard.png" alt="Aijeff Keyboard Wrist Rest with Cleaning Kit, Mutifunctional Cleaner Kit for Phones, Computers, Headphones, Tablets, Innovative Wrist Support for Typing, Gaming, Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳1563</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/mouse.png" alt="">
-            </div>
-            <div class="product-price">৳869</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/mouse.png" alt="Razer Basilisk V3 Customizable Ergonomic Gaming Mouse: Fastest Gaming Mouse Switch - Chroma RGB Lighting - 26K DPI Optical Sensor - 11 Programmable Buttons - HyperScroll Tilt Wheel - Classic Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳869</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/mouse_pad.png" alt="">
-            </div>
-            <div class="product-price">৳283</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/mouse_pad.png" alt="Logitech Mouse Pad - Studio Series, Computer Mouse Mat with Anti-Slip Rubber Base, Easy Gliding, Spill-Resistant Surface, Durable Materials, Portable, in a Fresh Modern Design, Graphite">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳283</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/speaker.png" alt="">
-            </div>
-            <div class="product-price">৳1934</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/speaker.png" alt="Bluetooth Speaker with HD Sound, Portable Wireless, IPX5 Waterproof, Up to 20H Playtime, TWS Pairing, BT5.3, for Home/Party/Outdoor/Beach, Electronic Gadgets, Birthday Gift (Black)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳1934</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/stand.png" alt="">
-            </div>
-            <div class="product-price">৳656</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/stand.png" alt="Laptop Stand for Desk, Adjustable Laptop Riser ABS+Silicone Foldable Portable Notebook Holder, Ventilated Cooling Notebook Mount Computer Stand for 10-15.6” Laptops,Tablets-Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳656</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/pen.png" alt="">
-            </div>
-            <div class="product-price">৳432</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/pen.png" alt="Stylus (5 Pcs), 2-in-1 Stylus Pen for Touch Screen, High Precision and Sensitivity, Suitable for iPhone/ipad/Android Tablets, Compatible with All Touch Screens (Black/White/Blue/Rose Gold/Silver)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳432</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/headset.png" alt="">
-            </div>
-            <div class="product-price">৳78547</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/headset.png" alt="Meta Quest 2 128GB - Advanced All-in-One Virtual Reality Headset (Renewed)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳78547</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/usb_hub.png" alt="">
-            </div>
-            <div class="product-price">৳214</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/usb_hub.png" alt="Acer USB Hub 4 Ports, Multiple USB 3.0 Hub, USBA Splitter for Laptop with Type C Power Port, Extender for A Port Laptop, PC, Desktop and More (2ft)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳214</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/img/earphone.png" alt="">
-            </div>
-            <div class="product-price">৳423</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="/img/earphone.png" alt="Wireless Earbuds, Bluetooth Ear Buds with Big Bass Stereo Sound, 48 Hours Playtime, Lightweight in-Ear Fit Earphones, IPX7, Hands-Free Calls with AI for iPhone, Android, Pad, Sports, Workout">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳423</div>
+</div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="img/ssd.png" alt="">
-            </div>
-            <div class="product-price">৳14323</div>
-            <a href="#" class="btn">Add to Cart</a>
-        </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/ssd.png" alt="SanDisk 2TB Extreme Portable SSD - Up to 1050MB/s, USB-C, USB 3.2 Gen 2, IP65 Water and Dust Resistance, Updated Firmware - External Solid State Drive - SDSSDE61-2T00-G25">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳14323</div>
+</div>
 
             </div>
     </section>
@@ -300,151 +198,126 @@
     <section>
 <div id="containerSlider3">
     
-    
-      
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img 8.jpg" alt="">
-        </div>
-        <div class="product-price">৳150999</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+    <div class="product-card">
+  <div class="product-image">
+    <img src="img/img 8.jpg" alt="2025 Apple MacBook Air with Apple M4 Chip (13-inch, 16GB Unified Memory, 256GB SSD Storage) (QWERTY English) Midnight (Renewed)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳150999</div>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/71ANGtyZRzL._AC_UY218_.png" alt="">
-        </div>
-        <div class="product-price">৳450890</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/71ANGtyZRzL._AC_UY218_.png" alt="Canon EOS R50 Mirrorless Camera RF-S18-45mm F4.5-6.3 is STM Lens Kit, 24.2 Megapixel CMOS (APS-C) Sensor, 4K Video, Hybrid Camera, Photo and Video, Vlogging, Content Creator, RF Mount, Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳450890</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img6.jpg" alt="Apple iPhone 16 Pro, US Version, 1TB, White Titanium - Unlocked (Renewed)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳155999</div>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img6.jpg" alt="">
-        </div>
-        <div class="product-price">৳155999</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img5.jpg" alt="Google Pixel 9 - Unlocked Android Smartphone with Gemini, 24-Hour Battery, Advanced Camera, and 6.3&quot; Actua Display - Obsidian - 256 GB">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳100000</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/513c8GtpBBL.__AC_SX300_SY300_QL70_FMwebp_.png" alt="Intel Core Ultra 7 Desktop Processor 265KF - 20 cores (8 P-cores + 12 E-cores) up to 5.5 GHz">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳29999</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/411T6bF3OfL._AC_UY218_.png" alt="Blink Mini 2 (Newest Model) — Home Security & Pet Camera(s) with HD video, color night view, motion detection, two-way audio, and built-in spotlight — 1 camera (Black)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳5999</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/510V6PbPGrL._AC_UY218_.png" alt="【RGB DDR4 RAM】GIGASTONE Game TURBO 32GB Kit (2x16GB)DDR4 3200MHz PC4-25600 CL16-18-18-40 Intel XMP 2.0 AMD Ryzen 1.35V UDIMM 288 Pin Unbuffered Non ECC High Performance Gaming Desktop Memory - Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳10080</div>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img5.jpg" alt="">
-        </div>
-        <div class="product-price">৳100000</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/imj9.png" alt="Amazon Basics IPS Monitor 75 Hz Powered with AOC Technology FHD 1080P HDMI, Display Port and VGA Input VESA Compatible Built-in Speakers for Office and Home, 27 in, Black">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳12120</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img10_.png" alt="WD_BLACK 4TB SN7100 NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,000 MB/s - WDS400T4X0E [New Version]">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳29880</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img11_.png" alt="Smart Watch for Men Women, 1000 mAh 100 Day Battery Life, 1.85&quot; Fitness Tracker Bluetooth Call/Make Calls, 110+ Sport Modes, IP68 Waterproof, Heart Rate, 24/7 Sleep Monitor Fitness Watch, iOS/Android">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳3480</div>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/513c8GtpBBL.__AC_SX300_SY300_QL70_FMwebp_.png" alt="">
-        </div>
-        <div class="product-price">৳29999</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img 12.png" alt="2000 Watt Sump Pump Backup Battery System, Automatic switchover to Battery Inverter Power, Professional Backup System in case of Power Failure, Pure sine Wave Output Remote Controller with LCD Screen">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳27480</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img13_.png" alt="2 Pack Garage Light, 200W 20000LM 6500K LED Shop Lights, Garage Lights Ceiling Led with 6+1 Deformable Panels, Screw in E26/E27 Socket Bulb for Warehouse, Workshop, Basement, Barn Lighting">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳2760</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img14_.png" alt="GIGABYTE Z890 AORUS Elite WIFI7 Intel Core Ultra (Series 2) LGA 1851 Motherboard, ATX, DDR5, 4X M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 2.5GbE LAN, EZ-Latch">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳33720</div>
+</div>
 
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img15_.png" alt="VIZIO 32-inch Full HD 1080p Smart TV with DTS Virtual: X, Alexa Compatibility, Google Cast Built-in, Bluetooth Headphone Capable, (VFD32M-08 New)">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳16080</div>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/411T6bF3OfL._AC_UY218_.png" alt="">
-        </div>
-        <div class="product-price">৳5999</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
+<div class="product-card">
+  <div class="product-image">
+    <img src="img/img16.png" alt="Official Licensed Netflix Smart Projector, HAPPRUN Projector 4K with Wifi and Bluetooth, DoIby Audio, Built-in Apps, Native 1080P 1000ANSI, Electric Focus, Portable Projector for Home Cinema, Bedroom">
+  </div>
+  <div class="product-name"></div>
+  <div class="product-pric">৳27480</div>
+</div>
 
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/510V6PbPGrL._AC_UY218_.png" alt="">
-        </div>
-        <div class="product-price">৳10080</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/imj9.png" alt="">
-        </div>
-        <div class="product-price">৳12120</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img10_.png" alt="">
-        </div>
-        <div class="product-price">৳29880</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img11_.png" alt="">
-        </div>
-        <div class="product-price">৳3480</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img 12.png" alt="">
-        </div>
-        <div class="product-price">৳27480</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img13_.png" alt="">
-        </div>
-        <div class="product-price">৳2760</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img14_.png" alt="">
-        </div>
-        <div class="product-price">৳33720</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-
-
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img15_.png" alt="">
-        </div>
-        <div class="product-price">৳16080</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <img src="img/img16.png" alt="">
-        </div>
-        <div class="product-price">৳27480</div>
-        <a href="#" class="btn">Add to Cart</a>
-      </div>
       
     </div>
 
@@ -486,8 +359,7 @@
       // Initialize multi-slider
       showMultiSlide();
     </script>
-</body>
-    <!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js”></script> -->
+     <!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js”></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script>
         $(document).ready(function()
@@ -502,4 +374,11 @@
             });
         });
     </script>
+
+
+
+
+
+</body>
+   
 </html>

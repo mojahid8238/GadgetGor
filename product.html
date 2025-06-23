@@ -86,6 +86,16 @@
       text-decoration: none;
       font-size: 14px;
     }
+    .btn2 {
+      display: inline-block;
+      background-color: #f0610e;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -109,37 +119,170 @@
       <div class="product-name">${selected.name}</div>
       <div class="product-price">${selected.price}</div>
       <a href="#" class="btn">Add to Cart</a>
+      <a href="#" class="btn2" id="buy-now-btn" style="background-color:#ff9800; margin-left:10px;">Buy Now</a>
     `;
+  
+    // Add Buy Now button action
+    document.getElementById('buy-now-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      // Redirect to checkout page (create checkout.html as needed)
+      window.location.href = 'checkout.html';
+    });
   }
 
   
 
   const products = [
     {
-      image: "/img/phone_charger.png",
-      name: "Apple 20W USB-C Power Adapter",
-      price: "৳2567"
-    },
-    {
-      image: "/img/powerbank.png",
-      name: "Ultra Rápido 20000mAh Power Bank",
-      price: "৳10000"
-    },
-    {
-      image: "/img/Phonecase.png",
-      name: "Lamicall Waterproof Phone Pouch Case",
-      price: "৳1432"
-    },
-    {
-      image: "/img/usb cable.png",
-      name: "Amazon Basics DisplayPort Cable",
-      price: "৳565"
-    },
-    {
-      image: "/img/mouse.png",
-      name: "Razer Basilisk V3 Gaming Mouse",
-      price: "৳869"
-    },
+    image: "/img/phone_charger.png",
+    name: "Apple 20W USB-C Power Adapter",
+    price: "৳2567"
+  },
+  {
+    image: "/img/powerbank.png",
+    name: "Ultra Rápido 20000mAh Power Bank",
+    price: "৳10000"
+  },
+  {
+    image: "/img/Phonecase.png",
+    name: "Lamicall Waterproof Phone Pouch Case",
+    price: "৳1432"
+  },
+  {
+    image: "/img/usb cable.png",
+    name: "Amazon Basics DisplayPort Cable",
+    price: "৳565"
+  },
+  {
+    image: "/img/micro.png",
+    name: "Studio Condenser Microphone Kit",
+    price: "৳10893"
+  },
+  {
+    image: "/img/keyboard.png",
+    name: "Redragon K552 Mechanical Gaming Keyboard",
+    price: "৳1563"
+  },
+  {
+    image: "/img/mouse.png",
+    name: "Razer Basilisk V3 Gaming Mouse",
+    price: "৳869"
+  },
+  {
+    image: "/img/mouse_pad.png",
+    name: "RGB Gaming Mouse Pad XL",
+    price: "৳283"
+  },
+  {
+    image: "/img/speaker.png",
+    name: "JBL GO 3 Portable Speaker",
+    price: "৳1934"
+  },
+  {
+    image: "/img/stand.png",
+    name: "Adjustable Laptop Stand",
+    price: "৳656"
+  },
+  {
+    image: "/img/pen.png",
+    name: "Stylus Pen for Touch Screens",
+    price: "৳432"
+  },
+  {
+    image: "/img/headset.png",
+    name: "SteelSeries Arctis Pro Wireless Headset",
+    price: "৳78547"
+  },
+  {
+    image: "/img/usb_hub.png",
+    name: "Anker USB C Hub, PowerExpand+ 7-in-1",
+    price: "৳214"
+  },
+  {
+    image: "/img/earphone.png",
+    name: "Sony MDR-EX15AP Wired Earphones",
+    price: "৳423"
+  },
+  {
+    image: "img/ssd.png",
+    name: "Samsung 970 EVO Plus 1TB NVMe SSD",
+    price: "৳14323"
+  },
+  {
+    image: "img/img 8.jpg",
+    name: "MSI GeForce RTX 3080 Ventus 3X",
+    price: "৳150999"
+  },
+  {
+    image: "img/71ANGtyZRzL._AC_UY218_.png",
+    name: "ASUS ROG Zephyrus G14 Gaming Laptop",
+    price: "৳450890"
+  },
+  {
+    image: "img/img6.jpg",
+    name: "Alienware AW2723DF 27\" Monitor",
+    price: "৳155999"
+  },
+  {
+    image: "img/img5.jpg",
+    name: "LG UltraGear QHD Nano IPS Monitor",
+    price: "৳100000"
+  },
+  {
+    image: "img/513c8GtpBBL.__AC_SX300_SY300_QL70_FMwebp_.png",
+    name: "Crucial 16GB DDR4 Laptop RAM",
+    price: "৳29999"
+  },
+  {
+    image: "img/411T6bF3OfL._AC_UY218_.png",
+    name: "Logitech HD Webcam C920",
+    price: "৳5999"
+  },
+  {
+    image: "img/510V6PbPGrL._AC_UY218_.png",
+    name: "Corsair Vengeance RGB RAM 16GB",
+    price: "৳10080"
+  },
+  {
+    image: "img/imj9.png",
+    name: "Cooler Master Hyper 212 Black",
+    price: "৳12120"
+  },
+  {
+    image: "img/img10_.png",
+    name: "Seagate Barracuda 2TB HDD",
+    price: "৳29880"
+  },
+  {
+    image: "img/img11_.png",
+    name: "TP-Link Wi-Fi Range Extender",
+    price: "৳3480"
+  },
+  {
+    image: "img/img 12.png",
+    name: "Dell Docking Station – USB 3.0",
+    price: "৳27480"
+  },
+  {
+    image: "img/img13_.png",
+    name: "Logitech Wireless Presenter R400",
+    price: "৳2760"
+  },
+  {
+    image: "img/img14_.png",
+    name: "BenQ ZOWIE XL2411K Monitor",
+    price: "৳33720"
+  },
+  {
+    image: "img/img15_.png",
+    name: "NZXT Kraken X53 RGB Cooler",
+    price: "৳16080"
+  },
+  {
+    image: "img/img16.png",
+    name: "Xiaomi Mi Router AX1800",
+    price: "৳27480"
+  },
   ];
 
   const productList = document.getElementById('product-list');
@@ -152,15 +295,50 @@
       <div class="product-name">${p.name}</div>
       <div class="product-price">${p.price}</div>
       <a href="#" class="btn">Add to Cart</a>
+
     `;
 
-    // 🔁 Make other products clickable too
+    // 🔁 Make other products clickable stoo
     card.addEventListener('click', () => {
       localStorage.setItem('selectedProduct', JSON.stringify(p));
       window.location.reload(); // reload same page with new selected product
     });
 
     productList.appendChild(card);
+  });
+</script>
+
+<script>
+  // Attach listeners to all "Add to Cart" buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); // prevent anchor jump
+        const card = btn.closest('.product-card');
+
+        if (card) {
+          const img = card.querySelector('img')?.src || '';
+          const name = card.querySelector('.product-name')?.textContent || 'Unnamed';
+          const price = card.querySelector('.product-price')?.textContent || '৳0';
+
+          const item = { image: img, name, price };
+
+          // Load existing cart
+          const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+          // Add new item
+          cart.push(item);
+
+          // Save back to localStorage
+          localStorage.setItem('cartItems', JSON.stringify(cart));
+
+          // Show message
+          alert('✅ Added to cart!');
+        }
+      });
+    });
   });
 </script>
 

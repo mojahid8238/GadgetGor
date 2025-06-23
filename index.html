@@ -115,6 +115,9 @@
 <!-- slider JS START -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <script>
+
+  window.onload = updateCartDisplay;
+
     $(document).ready(function()
     {
     $('#containerSlider').slick({
@@ -144,8 +147,108 @@
     });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded'); // Debug log
+    
+    document.body.addEventListener('click', function (e) {
+      console.log('Click detected on:', e.target); // Debug log
+      
+      const card = e.target.closest('.product-card');
+      console.log('Found card:', card); // Debug log
+      
+      if (!card) return;
+      
+      // prevent <a href="#"> from interfering
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+      }
+      
+      const image = card.querySelector('img')?.getAttribute('src');
+      const name = card.querySelector('.product-name')?.textContent;
+      const price = card.querySelector('.product-price')?.textContent;
+      
+      console.log('Extracted data:', { image, name, price }); // Debug log
+      
+      if (image && name && price) {
+        const product = { image, name, price };
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'product.html';
+        console.log('Delegated click:', product);
+      } else {
+        console.log('Missing data - image:', !!image, 'name:', !!name, 'price:', !!price);
+      }
+    });
+  });
+</script>
 
+<!-- Alternative version if the above doesn't work -->
+<script>
+  // Version 2: Individual listeners (more reliable)
+  function setupCardListeners() {
+    const productCards = document.querySelectorAll('.product-card');
+    console.log('Found cards:', productCards.length);
+    
+    productCards.forEach((card, index) => {
+      console.log('Setting up listener for card', index);
+      card.addEventListener('click', (e) => {
+        console.log('Card clicked:', index);
+        
+        // prevent <a href="#"> from interfering
+        if (e.target.tagName === 'A') {
+          e.preventDefault();
+        }
+        
+        const image = card.querySelector('img')?.getAttribute('src');
+        const name = card.querySelector('.product-name')?.textContent;
+        const price = card.querySelector('.product-price')?.textContent;
+        
+        console.log('Data:', { image, name, price });
+        
+        if (image && name && price) {
+          const product = { image, name, price };
+          localStorage.setItem('selectedProduct', JSON.stringify(product));
+          window.location.href = 'product.html';
+          console.log("Card clicked:", product);
+        } else {
+          console.log('Missing required data');
+        }
+      });
+    });
+  }
+  
+  // Try multiple ways to ensure DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCardListeners);
+  } else {
+    setupCardListeners();
+  }
+</script>
 
+<!-- Version 3: If cards are added dynamically -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const productCards = document.querySelectorAll('.product-card');
+
+    productCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const image = img?.getAttribute('src');
+        const name = img?.getAttribute('alt');  // ✅ name from alt
+        const price = card.querySelector('.product-pric')?.textContent;
+
+        if (image && name && price) {
+          const product = { image, name, price };
+          localStorage.setItem('selectedProduct', JSON.stringify(product));
+          window.location.href = 'product.html';
+          console.log("Product clicked:", product);
+        } else {
+          console.warn('Missing product data');
+        }
+      });
+    });
+  });
+</script>
 
 
 <!-- slider JS ENDS -->

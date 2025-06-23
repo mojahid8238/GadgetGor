@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; }
+    .checkout-container {
+      background: #fff;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .row { margin-bottom: 1rem; }
+    .label { font-weight: bold; }
+    .total { font-size: 1.2rem; color: #4CAF50; }
+    .pay-btn {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+    <div class="row"><span class="label">Product:</span> <span id="product-name"></span></div>
+    <div class="row"><span class="label">Price:</span> <span id="product-price"></span></div>
+    <div class="row"><span class="label">Delivery Charge:</span> <span id="delivery-charge"></span></div>
+    <div class="row total"><span class="label">Total:</span> <span id="total"></span></div>
+    <h3>Payment Gateway</h3>
+    <select id="payment-method">
+      <option value="cod">Cash on Delivery</option>
+      <option value="bkash">bKash</option>
+      <option value="card">Credit/Debit Card</option>
+    </select>
+    <button class="pay-btn" onclick="payNow()">Pay Now</button>
+  </div>
+  <script>
+    // Get selected product from localStorage
+    const selected = JSON.parse(localStorage.getItem('selectedProduct'));
+    const deliveryCharge = 80; // Example delivery charge
+
+    if (selected) {
+      document.getElementById('product-name').textContent = selected.name;
+      document.getElementById('product-price').textContent = selected.price;
+
+      // Extract numeric value from price string (assumes format: "৳1234")
+      const priceValue = parseInt(selected.price.replace(/[^\d]/g, ''), 10);
+      document.getElementById('delivery-charge').textContent = `৳${deliveryCharge}`;
+      document.getElementById('total').textContent = `৳${priceValue + deliveryCharge}`;
+    }
+
+    function payNow() {
+      const method = document.getElementById('payment-method').value;
+      alert('Payment method: ' + method + '\nThank you for your purchase!');
+      // Here you can add real payment gateway integration
+    }
+  </script>
+</body>
+</html>
