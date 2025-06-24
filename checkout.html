@@ -94,7 +94,8 @@
       const from = getQueryParam('from');
       const container = document.getElementById('checkout-items');
       let items = [];
-      let total = 0;
+      let subTotal = 0;
+      let mainTotal = 0;
 
       if (from === 'cart') {
         items = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -112,7 +113,8 @@
       container.innerHTML = '';
       items.forEach(item => {
         const price = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
-        total = price + deliveryCharge;
+        subTotal += price;
+        mainTotal =subTotal+ deliveryCharge; // Add delivery charge to total
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.style.marginBottom = '1rem';
@@ -124,7 +126,9 @@
         container.appendChild(div);
       });
 
-      document.getElementById('total').textContent = `৳${total.toFixed(2)}`;
+      document.getElementById('total').textContent = `৳${mainTotal.toFixed(2)}`;
+      document.getElementById('subtotal').textContent = `৳${subTotal.toFixed(2)}`;
+
     }
 
     function payNow() {
