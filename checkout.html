@@ -3,141 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Checkout</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; }
-    .checkout-container {
-      background: #fff;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .photo-section {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border: 2px dashed #ddd;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    .product-image {
-      max-width: 100%;
-      max-height: 200px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .image-placeholder {
-      width: 150px;
-      height: 150px;
-      background: #e0e0e0;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    .row { margin-bottom: 1rem; }
-    .label { font-weight: bold; }
-    .total { font-size: 1.2rem; color: #4CAF50; }
-    .pay-btn {
-      background: #ff9800;
-      color: #fff;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 1rem;
-      width: 100%;
-    }
-    .pay-btn:hover {
-      background: #e68900;
-    }
-    .payment-options {
-      margin: 1rem 0;
-    }
-    .payment-option {
-      display: block;
-      margin: 0.5rem 0;
-      padding: 0.7rem;
-      border: 2px solid #ddd;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .payment-option:hover {
-      border-color: #ff9800;
-      background: #fff8f0;
-    }
-    .payment-option input[type="radio"] {
-      margin-right: 0.5rem;
-    }
-    .payment-option input[type="radio"]:checked + span {
-      font-weight: bold;
-      color: #ff9800;
-    }
-    .payment-option:has(input[type="radio"]:checked) {
-      border-color: #ff9800;
-      background: #fff8f0;
-    }
-    .cart-item {
-      display: flex;
-      align-items: center;
-      padding: 0.8rem;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      background: #fafafa;
-    }
-    .cart-item img {
-      max-width: 60px;
-      max-height: 60px;
-      border-radius: 6px;
-      margin-right: 12px;
-    }
-    .cart-item-details {
-      flex: 1;
-    }
-    .cart-item-name {
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .cart-item-price {
-      color: #4caf50;
-      font-weight: bold;
-    }
-    .empty {
-      text-align: center;
-      color: #999;
-      padding: 2rem 0;
-      font-style: italic;
-    }
-    .checkout-items-container {
-      margin: 1.5rem 0;
-    }
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      color: #333;
-      border-bottom: 2px solid #ff9800;
-      padding-bottom: 0.5rem;
-    }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      padding: 0.3rem 0;
-    }
-    .summary-section {
-      border-top: 2px solid #eee;
-      padding-top: 1rem;
-      margin-top: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
   <div class="checkout-container">
@@ -228,80 +94,37 @@
       const from = getQueryParam('from');
       const container = document.getElementById('checkout-items');
       let items = [];
-      let subtotal = 0;
+      let total = 0;
 
-      try {
-        if (from === 'cart') {
-          // Coming from cart page - show all cart items
-          items = JSON.parse(localStorage.getItem('cartItems') || '[]');
-        } else if (from === 'product') {
-          // Coming from product page - show selected product
-          const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
-          if (selectedProduct) {
-            items = [selectedProduct];
-          }
-        } else {
-          // Fallback - try both sources
-          const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-          const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
-          
-          if (cartItems.length > 0) {
-            items = cartItems;
-          } else if (selectedProduct) {
-            items = [selectedProduct];
-          }
-        }
-      } catch (e) {
-        console.error('Error parsing stored data:', e);
-        items = [];
+      if (from === 'cart') {
+        items = JSON.parse(localStorage.getItem('cartItems')) || [];
+      } else if (from === 'product') {
+        const selected = JSON.parse(localStorage.getItem('selectedProduct'));
+        if (selected) items = [selected];
       }
 
-      // If no items found, show sample data
-      if (items.length === 0) {
-        items = [
-          {
-            name: 'Sample Product 1',
-            price: '৳1500',
-            image: sampleProducts['Sample Product 1']
-          }
-        ];
+      if (!items || items.length === 0) {
+        container.innerHTML = `<div class="empty">🛒 No products to show.</div>`;
+        document.getElementById('total').textContent = '৳0.00';
+        return;
       }
 
-      // Clear container
       container.innerHTML = '';
-
-      // Render items
-      items.forEach((item, index) => {
-        const itemPrice = parsePrice(item.price);
-        subtotal += itemPrice;
-
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'cart-item';
-        
-        // Get image source
-        let imageSrc = item.image;
-        if (!imageSrc && sampleProducts[item.name]) {
-          imageSrc = sampleProducts[item.name];
-        }
-        if (!imageSrc) {
-          imageSrc = 'https://via.placeholder.com/60x60/E0E0E0/666666?text=No+Image';
-        }
-
-        itemDiv.innerHTML = `
-          <img src="${imageSrc}" alt="${item.name}" onerror="showPlaceholder(this)">
-          <div class="cart-item-details">
-            <div class="cart-item-name">${item.name}</div>
-            <div class="cart-item-price">${item.price}</div>
-          </div>
+      items.forEach(item => {
+        const price = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+        total = price + deliveryCharge;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.style.marginBottom = '1rem';
+        div.innerHTML = `
+          <img src="${item.image}" alt="Product" style="max-width:80px; border-radius:6px; margin-right:10px;">
+          <span style="font-weight:bold;">${item.name}</span>
+          <span style="color:#4caf50; margin-left:10px;">${item.price}</span>
         `;
-        
-        container.appendChild(itemDiv);
+        container.appendChild(div);
       });
 
-      // Update totals
-      const total = subtotal + deliveryCharge;
-      document.getElementById('subtotal').textContent = formatPrice(subtotal);
-      document.getElementById('total').textContent = formatPrice(total);
+      document.getElementById('total').textContent = `৳${total.toFixed(2)}`;
     }
 
     function payNow() {

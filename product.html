@@ -120,13 +120,12 @@
       <div class="product-price">${selected.price}</div>
      <a href="checkout.html?from=product" class="btn2" id="buy-now-btn" style="background-color:#ff9800; margin-left:10px;">Buy Now</a>
     `;
-  
-    // Add Buy Now button action
     document.getElementById('buy-now-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      // Redirect to checkout page (create checkout.html as needed)
-      window.location.href = 'checkout.html';
-    });
+  e.preventDefault();
+  window.location.href = 'checkout.html?from=product'; // ✅ Fixed
+});
+
+   
   }
 
   
