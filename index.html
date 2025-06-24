@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="/style.css"> -->
     <title>GadgetGor</title>
     <!-- favicon -->
     <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
@@ -12,271 +11,281 @@
     <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <!-- slider links -->
-    <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="js/jQuery3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <style>
         .accessory-img {
           width: 56px;
           height: 56px;
-          object-fit: contain; /* or use 'cover' for a different effect */
+          object-fit: contain;
           display: block;
           margin: 0 auto 16px auto;
           border-radius: 6px;
           background: #f0f0f0;
           border: 1px solid #e0e0e0;
- 
-
-   
-
-        
+        }
     </style>
 </head>
 
 <body>
     <!-- HEADER -->
-    <div id="header-container" ></div>
+    <div id="1"></div>
     <script>
-  function load(url) {
-    const req = new XMLHttpRequest();
-    req.open("GET", url, true); // async = true
-    req.onload = function() {
-      if (req.status >= 200 && req.status < 400) {
-        document.getElementById("header-container").innerHTML = req.responseText;
-        initHeaderScripts(); // Initialize after loading
-      } else {
-        console.error("Failed to load", url);
-      }
-    };
-    req.onerror = function() {
-      console.error("Connection error");
-    };
-    req.send();
-  }
+        function loadHeader(url) {
+            const req = new XMLHttpRequest();
+            req.open("GET", url, true);
+            req.onload = function() {
+                if (req.status >= 200 && req.status < 400) {
+                    document.getElementById("1").innerHTML = req.responseText;
+                    initHeaderScripts();
+                } else {
+                    console.error("Failed to load", url);
+                }
+            };
+            req.onerror = function() {
+                console.error("Connection error");
+            };
+            req.send();
+        }
 
-  function initHeaderScripts() {
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobile-menu");
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("show");
-      });
-    }
-  }
+        function initHeaderScripts() {
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobile-menu");
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("show");
+                });
+            }
+        }
 
-  load("header.html");
-</script>
+        loadHeader("header.html");
+    </script>
 
-    <!-- SLIDER -->
+    <!-- MAIN SLIDER -->
     <div id="2"></div>
     <script>
-        load("slider.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(2).innerHTML = req.responseText;
+        function loadSlider(url) {
+            const req = new XMLHttpRequest();
+            req.open("GET", url, true); // Use async
+            req.onload = function() {
+                if (req.status >= 200 && req.status < 400) {
+                    document.getElementById("2").innerHTML = req.responseText;
+                    // Initialize sliders AFTER content is loaded
+                    initializeSliders();
+                } else {
+                    console.error("Failed to load", url);
+                }
+            };
+            req.onerror = function() {
+                console.error("Connection error loading slider");
+            };
+            req.send();
         }
+
+        function initializeSliders() {
+            // Wait a bit for DOM to settle
+            setTimeout(() => {
+                console.log('Initializing sliders...');
+                
+                // Check if jQuery and slick are available
+                if (typeof $ !== 'undefined' && $.fn.slick) {
+                    // Initialize main slider
+                    if ($('#containerSlider').length) {
+                        $('#containerSlider').slick({
+                            dots: true,
+                            infinite: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            autoplaySpeed: 1500,
+                        });
+                        console.log('Main slider initialized');
+                        
+                        // Add click event to main slider images
+                        initMainSliderClickHandlers();
+                    }
+
+                    // Initialize product sliders
+                    if ($('#containerSlider2').length || $('#containerSlider3').length) {
+                        $('#containerSlider2, #containerSlider3').slick({
+                            dots: true,
+                            infinite: true,
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            autoplaySpeed: 1500,
+                            responsive: [
+                                {
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 768,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
+                                }
+                            ]
+                        });
+                        console.log('Product sliders initialized');
+                    }
+
+                    // Initialize product card click handlers
+                    initProductCardHandlers();
+                    
+                } else {
+                    console.error('jQuery or Slick not available');
+                }
+            }, 100);
+        }
+
+        function initMainSliderClickHandlers() {
+            // Remove existing listeners to avoid duplicates
+            $(document).off('click', '#containerSlider img');
+            
+            // Add click event to main slider images
+            $(document).on('click', '#containerSlider img', function(e) {
+                e.preventDefault();
+                
+                const altText = $(this).attr('alt');
+                const imageSrc = $(this).attr('src');
+                
+                console.log('Main slider image clicked:', { altText, imageSrc });
+                
+                if (altText) {
+                    // Extract HTML path from alt attribute
+                    // Assuming alt contains the HTML path (e.g., "product-details.html" or "category/phones.html")
+                    let htmlPath = altText;
+                    
+                    // If alt text doesn't contain .html, you might need to process it
+                    // For example, if alt="image1", you might want to redirect to "page1.html"
+                    if (!htmlPath.includes('.html')) {
+                        // Convert alt text to HTML path
+                        // You can customize this logic based on your naming convention
+                        switch(altText.toLowerCase()) {
+                            case 'image1':
+                                htmlPath = 'category1.html';
+                                break;
+                            case 'image2':
+                                htmlPath = 'category2.html';
+                                break;
+                            case 'image3':
+                                htmlPath = 'category3.html';
+                                break;
+                            case 'image4':
+                                htmlPath = 'category4.html';
+                                break;
+                            default:
+                                htmlPath = altText + '.html';
+                        }
+                    }
+                    
+                    console.log('Redirecting to:', htmlPath);
+                    
+                    // Store the clicked slider data if needed
+                    const sliderData = {
+                        altText: altText,
+                        imageSrc: imageSrc,
+                        htmlPath: htmlPath,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    try {
+                        localStorage.setItem('clickedSliderData', JSON.stringify(sliderData));
+                    } catch (e) {
+                        console.log('localStorage not available');
+                    }
+                    
+                    // Redirect to the HTML path
+                    window.location.href = htmlPath;
+                    
+                } else {
+                    console.warn('No alt text found for slider image');
+                }
+            });
+        }
+
+        function initProductCardHandlers() {
+            // Remove existing listeners to avoid duplicates
+            $(document).off('click', '.product-card');
+            
+            // Add new listeners
+            $(document).on('click', '.product-card', function(e) {
+                e.preventDefault();
+                
+                const image = $(this).find('img').attr('src');
+                const name = $(this).find('img').attr('alt'); // Get name from alt attribute
+                const price = $(this).find('.product-pric').text();
+                
+                console.log('Product clicked:', { image, name, price });
+                
+                if (image && name && price) {
+                    const product = { image, name, price };
+                    
+                    // Store in localStorage if available, otherwise use sessionStorage or memory
+                    try {
+                        localStorage.setItem('selectedProduct', JSON.stringify(product));
+                        window.location.href = 'product.html';
+                    } catch (e) {
+                        // Fallback if localStorage is not available
+                        console.log('localStorage not available, product data:', product);
+                        alert(`Product: ${name}\nPrice: ${price}`);
+                    }
+                } else {
+                    console.warn('Missing product data');
+                }
+            });
+        }
+
+        loadSlider("slider.html");
     </script>
 
-    
-    <!-- SLIDER 2-->
+    <!-- SLIDER 2 (Additional content if needed) -->
     <div id="3">
-        <!-- New container added inside div 3 -->
-        <div class="extra-container">
-            <!-- Content for the new container -->
-        </div>
+        <div class="extra-container"></div>
     </div>
-    <script>
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(3).innerHTML = req.responseText;
-        }
-    </script>
 
-    <!-- SLIDER 3-->
+    <!-- SLIDER 3 (Additional content if needed) -->
     <div id="4">
-        <!-- New container added inside div 3 -->
-        <div class="extra-container2">
-            <!-- Content for the new container -->
-        </div>
+        <div class="extra-container2"></div>
     </div>
-    <script>
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(4).innerHTML = req.responseText;
-        }
-    </script>
-
-
-
-
-
-    
 
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
-        load("footer.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(4).innerHTML = req.responseText;
+        function loadFooter(url) {
+            const req = new XMLHttpRequest();
+            req.open("GET", url, true);
+            req.onload = function() {
+                if (req.status >= 200 && req.status < 400) {
+                    document.getElementById("footer").innerHTML = req.responseText;
+                } else {
+                    console.error("Failed to load footer");
+                }
+            };
+            req.onerror = function() {
+                console.error("Connection error loading footer");
+            };
+            req.send();
         }
+
+        loadFooter("footer.html");
     </script>
 
+    <!-- Load Slick Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
 </body>
-
-<!-- slider JS START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-
-  window.onload = updateCartDisplay;
-
-    $(document).ready(function()
-    {
-    $('#containerSlider').slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        });
-    });
-</script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-    $(document).ready(function()
-    {
-    $('#containerSlider2,#containerSlider3').slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        });
-    });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('Script loaded'); // Debug log
-    
-    document.body.addEventListener('click', function (e) {
-      console.log('Click detected on:', e.target); // Debug log
-      
-      const card = e.target.closest('.product-card');
-      console.log('Found card:', card); // Debug log
-      
-      if (!card) return;
-      
-      // prevent <a href="#"> from interfering
-      if (e.target.tagName === 'A') {
-        e.preventDefault();
-      }
-      
-      const image = card.querySelector('img')?.getAttribute('src');
-      const name = card.querySelector('.product-name')?.textContent;
-      const price = card.querySelector('.product-price')?.textContent;
-      
-      console.log('Extracted data:', { image, name, price }); // Debug log
-      
-      if (image && name && price) {
-        const product = { image, name, price };
-        localStorage.setItem('selectedProduct', JSON.stringify(product));
-        window.location.href = 'product.html';
-        console.log('Delegated click:', product);
-      } else {
-        console.log('Missing data - image:', !!image, 'name:', !!name, 'price:', !!price);
-      }
-    });
-  });
-</script>
-
-<!-- Alternative version if the above doesn't work -->
-<script>
-  // Version 2: Individual listeners (more reliable)
-  function setupCardListeners() {
-    const productCards = document.querySelectorAll('.product-card');
-    console.log('Found cards:', productCards.length);
-    
-    productCards.forEach((card, index) => {
-      console.log('Setting up listener for card', index);
-      card.addEventListener('click', (e) => {
-        console.log('Card clicked:', index);
-        
-        // prevent <a href="#"> from interfering
-        if (e.target.tagName === 'A') {
-          e.preventDefault();
-        }
-        
-        const image = card.querySelector('img')?.getAttribute('src');
-        const name = card.querySelector('.product-name')?.textContent;
-        const price = card.querySelector('.product-price')?.textContent;
-        
-        console.log('Data:', { image, name, price });
-        
-        if (image && name && price) {
-          const product = { image, name, price };
-          localStorage.setItem('selectedProduct', JSON.stringify(product));
-          window.location.href = 'product.html';
-          console.log("Card clicked:", product);
-        } else {
-          console.log('Missing required data');
-        }
-      });
-    });
-  }
-  
-  // Try multiple ways to ensure DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupCardListeners);
-  } else {
-    setupCardListeners();
-  }
-</script>
-
-<!-- Version 3: If cards are added dynamically -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const productCards = document.querySelectorAll('.product-card');
-
-    productCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const img = card.querySelector('img');
-        const image = img?.getAttribute('src');
-        const name = img?.getAttribute('alt');  // ✅ name from alt
-        const price = card.querySelector('.product-pric')?.textContent;
-
-        if (image && name && price) {
-          const product = { image, name, price };
-          localStorage.setItem('selectedProduct', JSON.stringify(product));
-          window.location.href = 'product.html';
-          console.log("Product clicked:", product);
-        } else {
-          console.warn('Missing product data');
-        }
-      });
-    });
-  });
-</script>
-
-
-<!-- slider JS ENDS -->
-
-
 </html>
