@@ -7,11 +7,37 @@
     body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; }
     .checkout-container {
       background: #fff;
-      max-width: 400px;
+      max-width: 500px;
       margin: 40px auto;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .photo-section {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .product-image {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .image-placeholder {
+      width: 150px;
+      height: 150px;
+      background: #e0e0e0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      color: #666;
+      font-size: 0.9rem;
     }
     .row { margin-bottom: 1rem; }
     .label { font-weight: bold; }
@@ -27,43 +53,296 @@
       margin-top: 1rem;
       width: 100%;
     }
+    .pay-btn:hover {
+      background: #e68900;
+    }
+    .payment-options {
+      margin: 1rem 0;
+    }
+    .payment-option {
+      display: block;
+      margin: 0.5rem 0;
+      padding: 0.7rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .payment-option:hover {
+      border-color: #ff9800;
+      background: #fff8f0;
+    }
+    .payment-option input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    .payment-option input[type="radio"]:checked + span {
+      font-weight: bold;
+      color: #ff9800;
+    }
+    .payment-option:has(input[type="radio"]:checked) {
+      border-color: #ff9800;
+      background: #fff8f0;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      background: #fafafa;
+    }
+    .cart-item img {
+      max-width: 60px;
+      max-height: 60px;
+      border-radius: 6px;
+      margin-right: 12px;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-name {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .cart-item-price {
+      color: #4caf50;
+      font-weight: bold;
+    }
+    .empty {
+      text-align: center;
+      color: #999;
+      padding: 2rem 0;
+      font-style: italic;
+    }
+    .checkout-items-container {
+      margin: 1.5rem 0;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #333;
+      border-bottom: 2px solid #ff9800;
+      padding-bottom: 0.5rem;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      padding: 0.3rem 0;
+    }
+    .summary-section {
+      border-top: 2px solid #eee;
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
   <div class="checkout-container">
-    <h2>Checkout</h2>
-    <div class="row"><span class="label">Product:</span> <span id="product-name"></span></div>
-    <div class="row"><span class="label">Price:</span> <span id="product-price"></span></div>
-    <div class="row"><span class="label">Delivery Charge:</span> <span id="delivery-charge"></span></div>
-    <div class="row total"><span class="label">Total:</span> <span id="total"></span></div>
-    <h3>Payment Gateway</h3>
-    <select id="payment-method">
-      <option value="cod">Cash on Delivery</option>
-      <option value="bkash">bKash</option>
-      <option value="card">Credit/Debit Card</option>
-    </select>
-    <button class="pay-btn" onclick="payNow()">Pay Now</button>
+    <h2>🛒 Checkout</h2>
+    
+    <!-- Items Section -->
+    <div class="checkout-items-container">
+      <div class="section-title">Order Items</div>
+      <div id="checkout-items"></div>
+    </div>
+    
+    <!-- Summary Section -->
+    <div class="summary-section">
+      <div class="section-title">Order Summary</div>
+      <div class="summary-row">
+        <span>Subtotal:</span>
+        <span id="subtotal">৳0</span>
+      </div>
+      <div class="summary-row">
+        <span>Delivery Charge:</span>
+        <span id="delivery-charge">৳80</span>
+      </div>
+      <div class="summary-row total">
+        <span class="label">Total:</span>
+        <span id="total">৳0</span>
+      </div>
+    </div>
+    
+    <!-- Payment Section -->
+    <h3>💳 Payment Gateway</h3>
+    <div class="payment-options">
+      <label class="payment-option">
+        <input type="radio" name="payment-method" value="cod">
+        <span>💵 Cash on Delivery</span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment-method" value="bkash">
+        <span>📱 bKash</span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment-method" value="card">
+        <span>💳 Credit/Debit Card</span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment-method" value="paypal">
+        <span>🅿️ PayPal</span>
+      </label>
+    </div>
+    <button class="pay-btn" onclick="payNow()">🛒 Pay Now</button>
   </div>
+
   <script>
-    // Get selected product from localStorage
-    const selected = JSON.parse(localStorage.getItem('selectedProduct'));
-    const deliveryCharge = 80; // Example delivery charge
+    // Sample products for fallback
+    const sampleProducts = {
+      'Sample Product 1': 'https://via.placeholder.com/200x200/FF6B6B/FFFFFF?text=Product+1',
+      'Sample Product 2': 'https://via.placeholder.com/200x200/4ECDC4/FFFFFF?text=Product+2',
+      'Sample Product 3': 'https://via.placeholder.com/200x200/45B7D1/FFFFFF?text=Product+3'
+    };
 
-    if (selected) {
-      document.getElementById('product-name').textContent = selected.name;
-      document.getElementById('product-price').textContent = selected.price;
+    const deliveryCharge = 80;
 
-      // Extract numeric value from price string (assumes format: "৳1234")
-      const priceValue = parseInt(selected.price.replace(/[^\d]/g, ''), 10);
-      document.getElementById('delivery-charge').textContent = `৳${deliveryCharge}`;
-      document.getElementById('total').textContent = `৳${priceValue + deliveryCharge}`;
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function parsePrice(priceStr) {
+      // Extract numeric value from price string (handles formats like "৳1234", "$123.45", etc.)
+      return parseFloat(priceStr.replace(/[^\d.]/g, '')) || 0;
+    }
+
+    function formatPrice(amount) {
+      return `৳${amount.toFixed(2)}`;
+    }
+
+    function showPlaceholder(img) {
+      img.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'image-placeholder';
+      placeholder.textContent = 'No Image';
+      placeholder.style.width = '60px';
+      placeholder.style.height = '60px';
+      placeholder.style.fontSize = '0.7rem';
+      img.parentNode.insertBefore(placeholder, img);
+    }
+
+    function renderCheckoutItems() {
+      const from = getQueryParam('from');
+      const container = document.getElementById('checkout-items');
+      let items = [];
+      let subtotal = 0;
+
+      try {
+        if (from === 'cart') {
+          // Coming from cart page - show all cart items
+          items = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        } else if (from === 'product') {
+          // Coming from product page - show selected product
+          const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
+          if (selectedProduct) {
+            items = [selectedProduct];
+          }
+        } else {
+          // Fallback - try both sources
+          const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+          const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct') || 'null');
+          
+          if (cartItems.length > 0) {
+            items = cartItems;
+          } else if (selectedProduct) {
+            items = [selectedProduct];
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing stored data:', e);
+        items = [];
+      }
+
+      // If no items found, show sample data
+      if (items.length === 0) {
+        items = [
+          {
+            name: 'Sample Product 1',
+            price: '৳1500',
+            image: sampleProducts['Sample Product 1']
+          }
+        ];
+      }
+
+      // Clear container
+      container.innerHTML = '';
+
+      // Render items
+      items.forEach((item, index) => {
+        const itemPrice = parsePrice(item.price);
+        subtotal += itemPrice;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        
+        // Get image source
+        let imageSrc = item.image;
+        if (!imageSrc && sampleProducts[item.name]) {
+          imageSrc = sampleProducts[item.name];
+        }
+        if (!imageSrc) {
+          imageSrc = 'https://via.placeholder.com/60x60/E0E0E0/666666?text=No+Image';
+        }
+
+        itemDiv.innerHTML = `
+          <img src="${imageSrc}" alt="${item.name}" onerror="showPlaceholder(this)">
+          <div class="cart-item-details">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${item.price}</div>
+          </div>
+        `;
+        
+        container.appendChild(itemDiv);
+      });
+
+      // Update totals
+      const total = subtotal + deliveryCharge;
+      document.getElementById('subtotal').textContent = formatPrice(subtotal);
+      document.getElementById('total').textContent = formatPrice(total);
     }
 
     function payNow() {
-      const method = document.getElementById('payment-method').value;
-      alert('Payment method: ' + method + '\nThank you for your purchase!');
-      // Here you can add real payment gateway integration
+      const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+      
+      if (!selectedMethod) {
+        alert('⚠️ Please select a payment method first!');
+        return;
+      }
+      
+      const methodNames = {
+        'cod': 'Cash on Delivery',
+        'bkash': 'bKash',
+        'card': 'Credit/Debit Card',
+        'paypal': 'PayPal'
+      };
+      
+      const methodName = methodNames[selectedMethod.value] || selectedMethod.value;
+      const total = document.getElementById('total').textContent;
+      
+      alert(`✅ Payment Confirmed!\n\n💳 Method: ${methodName}\n💰 Amount: ${total}\n\nThank you for your purchase! 🎉`);
+      
+      // Clear stored data after successful payment
+      localStorage.removeItem('selectedProduct');
+      localStorage.removeItem('cartItems');
+      
+      // You can redirect to a success page or order confirmation page
+      // window.location.href = 'order-success.html';
     }
+
+    // Initialize page when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCheckoutItems();
+      
+      // Log current state for debugging
+      console.log('Checkout page loaded');
+      console.log('URL params:', window.location.search);
+      console.log('From:', getQueryParam('from'));
+      console.log('Cart items:', localStorage.getItem('cartItems'));
+      console.log('Selected product:', localStorage.getItem('selectedProduct'));
+    });
   </script>
 </body>
 </html>
